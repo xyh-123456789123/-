@@ -15,9 +15,12 @@ $(function() {
             success: function(data) {
                $('#myModal').modal('show')
                $('.modal-body p').text(data.msg)
+               
                if (data.code === 200) {
                    $('#myModal').on('hidden.bs.modal', function (e) {
-                     location.href = '../../admin/index.html'
+                     location.href = '../admin/index.html'
+                     localStorage.setItem('token',data.token)
+                     console.log('token',data.token)
                    })
                    
                }
