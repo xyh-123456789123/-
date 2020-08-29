@@ -2,10 +2,6 @@ $(function() {
     $.ajax({
         type: 'get',
         url: 'http://localhost:8080/api/v1/admin/user/info',
-        dataType: 'json',
-        headers:{
-         Authorization:window.localStorage.getItem('token')
-       },
         success: function(info) {
             console.log(info)
             $('.user_info span').text(info.data.nickname)
@@ -18,6 +14,6 @@ $(function() {
     $('.user_center_link .logout').on('click',function() {
         //删除token
         localStorage.removeItem('token')
-        location.href = '../admin/login.html'
+        location.href = './login.html'
     })
 })

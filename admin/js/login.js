@@ -17,6 +17,7 @@ $(function() {
                $('.modal-body p').text(data.msg)
                
                if (data.code === 200) {
+                   console.log(data)
                    $('#myModal').on('hidden.bs.modal', function (e) {
                      location.href = '../admin/index.html'
                      localStorage.setItem('token',data.token)
