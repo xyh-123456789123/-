@@ -16,6 +16,8 @@ $(function() {
 
     //退出
     $('.user_center_link .logout').on('click',function() {
+        //删除token
+        localStorage.removeItem('token')
         location.href = '../admin/login.html'
     })
 })
