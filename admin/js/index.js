@@ -1,7 +1,7 @@
 $(function() {
     $.ajax({
         type: 'get',
-        url: 'http://localhost:8080/api/v1/admin/user/info',
+        url: BigNew.user_info,
         success: function(info) {
             console.log(info)
             $('.user_info span').text(info.data.nickname)
@@ -15,5 +15,22 @@ $(function() {
         //删除token
         localStorage.removeItem('token')
         location.href = './login.html'
+    })
+
+    //高亮效果
+    $('.menu .level01').on('click',function() {
+        $(this).addClass('active').siblings('div').removeClass('active')
+
+        if($(this).index() == 1) {
+            $('.menu .level02').slideToggle()
+
+            $(this).find('b').toggleClass('rotate0')
+
+            $('.menu .level02 li:eq(0)').click()
+        }
+    })
+    //li的高亮效果
+    $('.menu .level02 li').on('click',function(){
+         $(this).addClass('active').siblings().removeClass('active')
     })
 })
