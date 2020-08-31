@@ -29,20 +29,34 @@ $(function() {
 
     var data = new FormData($('#form')[0])
     
+
     $.ajax({
       type: 'post',
       url: BigNew.user_edit,
       data: data,
       processData:false,
       contentType:false,
-      success:function(data) {
-
-        if (data.code === 200) {
-            parent.$('.user_info span').text(data.data.nickname)
-            parent.$('.user_info img').attr('src',data.data.userPic)
-            parent.$('.user_center_link img').attr('src',data.data.userPic)
+      success:function(info) {
+        if (info.code === 200) {
+          $.ajax({
+            type: 'get',
+            url: BigNew.user_info,
+            success: function(info) {
+              console.log(info)
+              if (info.code === 200) {
+                 parent.$('.sider .user_info img').attr('src', info.data.userPic)
+                // 左侧的昵称
+                parent.$('.sider .user_info span').html(`欢迎&nbsp;&nbsp;${info.data.nickname}`)
+                // 上方右侧的头像
+                parent.$('.header_bar img').attr('src', info.data.userPic)
+              }
+            }
+          })
         }
       }
     })
   })
+
+
+
 })
