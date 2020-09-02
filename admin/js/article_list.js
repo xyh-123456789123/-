@@ -17,7 +17,7 @@ $(function() {
     type: 'get',
     url: BigNew.article_query,
     success: function (res) {
-    
+      console.log(res)
       if (res.code == 200) {
         var str = template('tip1', res.data)
         $('tbody').html(str)

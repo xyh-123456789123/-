@@ -64,7 +64,7 @@
             </table>
             <div class="row text-center">
                  <ul id="pagination-demo" class="pagination-sm"></ul>
-                 <!-- <p>暂时没有数据。。。。。</p> -->
+                 <p>暂时没有数据。。。。。</p>
             </div> 
             <div class="row text-center">
             </div>
@@ -107,7 +107,7 @@
            <td class="text-center">{{v.date}}</td>
            <td class="text-center">{{v.state}}</td>
            <td class="text-center">
-               <a href="article_edit.html" data-id='{{v.id}}' class="btn btn-default btn-xs">编辑</a>
+               <a href="article_edit.html?id={{v.id}}" data-id='{{v.id}}' class="btn btn-default btn-xs">编辑</a>
                <button  data-id='{{v.id}}' data-toggle="modal" data-target="#delModal" class="btn btn-danger btn-xs delete" >删除</button>
            </td>
         </tr>
