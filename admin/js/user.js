@@ -38,6 +38,7 @@ $(function() {
       contentType:false,
       success:function(info) {
         if (info.code === 200) {
+          console.log(data)
           $.ajax({
             type: 'get',
             url: BigNew.user_info,

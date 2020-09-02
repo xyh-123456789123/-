@@ -14,6 +14,19 @@
     <script src="./libs/jquery-1.12.4.min.js"></script>
     <!-- 模板引擎 -->
     <script src="./libs/template-web.js"></script>
+    <!-- 日期插件引入 -->
+    <link rel="stylesheet" href="../jedate-6.5.0/test/jeDate-test.css">
+    <link rel="stylesheet" href="../jedate-6.5.0/skin/jedate.css">
+    <script src="../jedate-6.5.0/src/jedate.js"></script>
+    <script src="../tinymce/tinymce.min.js"></script>
+
+    <script src="./js/config.js"></script>
+    <!-- http引入 -->
+    <script src="./js/http.js"></script>
+    <!-- edit引入 -->
+    <script src="./js/article_edit.js"></script>
+
+  
 </head>
 
 <body>
@@ -51,11 +64,21 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">发布时间：</label>
                     <div class="col-sm-4">
+                        <div class="jeitem">
+                          <div class="jeinpbox">
+                             <input type="text" name="date" class="jeinput" id="testico" placeholder="YYYY-MM-DD">
+                             <div class="icons jebtns"
+                                 onclick="jeDate('#testico',{trigger:false,format: 'YYYY-MM-DD',theme: { bgcolor: '#00A680', pnColor: '#00DDAA' }})">
+                             </div>
+                         </div>
+                           </div>
+                          
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">文章内容：</label>
                     <div class="col-sm-10">
+                        <input type="text" class="form-control" id="mytextarea" placeholder="文章内容" value="文章内容">
                     </div>
                 </div>
                 <div class="form-group">
@@ -67,6 +90,30 @@
             </form>
         </div>
     </div>
+      <script>
+        /* 2.js初始化选项 */
+        tinymce.init({
+            selector: '#mytextarea',
+            height:'350px',
+            width: '800px',
+            language: 'zh_CN',
+            directionality: 'ltl',
+            browser_spellcheck: true,
+            contextmenu: false,
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste imagetools wordcount",
+                "code"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code",
+        });
+
+        document.querySelector('#btn').onclick = function(){
+            //3.获取tinymce编辑器文本
+            console.log(tinymce.activeEditor.getContent());
+        };
+</script>
 </body>
 
 </html>

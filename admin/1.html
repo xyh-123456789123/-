@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(str) {
+            if (str < 3) {
+                return 1
+            }
+            return fn(str -2 ) + fn(str - 1)
+        }
+        console.log(fn(10))
+    </script>
+</body>
+</html>
