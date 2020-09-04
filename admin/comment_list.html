@@ -57,9 +57,9 @@
             <td>{{vlaue.date + " " +vlaue.time }}</td>
             <td>{{vlaue.state}}</td>
             <td class="text-center">
-              <a href="javascript:editTr( 'rejected',11 );" class="btn btn-warning btn-xs" id='pass'>通过</a>
-              <a href="javascript:editTr( 'rejected',11 );" class="btn btn-warning btn-xs">拒绝</a>
-              <a href="javascript:editTr( 'trashed',11 );" class="btn btn-danger btn-xs">删除</a>
+              <button class="btn btn-warning btn-xs btn-pass" data-id='{{vlaue.id}}'>通过</button>
+              <button class="btn btn-warning btn-xs btn-reject" data-id='{{vlaue.id}}'>拒绝</button>
+              <button class="btn btn-danger btn-xs btn-delete" data-id='{{vlaue.id}}'>删除</button>
             </td>
           </tr>
     {{/each}}
