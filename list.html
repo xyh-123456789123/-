@@ -226,7 +226,57 @@
         <p>电话：0755-****888 粤ICP备*******8号</p>
     </div>
     <!-- 导包template -->
-    <script src="./js/template-web.js"></script>
+    <script src="./libs/template-web.js"></script>
+    <script src="./js/http.js"></script>
+    <script src="./js/list.js"></script>
+    <script src="./js/utils.js"></script>
+
+    <script type="text/html" id="articleList">
+        {{each data vlaue index}}
+             <div class="common_news_list">
+           <a href="./article.html?id={{vlaue.id}}" class="list_pic"><img src="{{vlaue.cover}}" alt=""></a>
+           <h4><a href="#">{{vlaue.title}}</a></h4>
+           <p>{{vlaue.content}}
+           </p>
+           <div class="new_info">
+               <span>标签：财经&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i class="fa fa-eye"></i>&nbsp;阅读( {{vlaue.read}}
+                   )&nbsp;&nbsp;&nbsp;<i class="fa fa-commenting"></i>&nbsp;评论( {{vlaue.comments}} )</span>
+               <b>发布于 {{vlaue.date}}</b>
+           </div>
+         </div>
+        {{/each}}
+    </script>
+
+    <script type="text/html" id="tip3">
+        {{each data vlaue index}}
+        {{if index==0}}
+        <li><span class="first">1</span>
+        {{else if index==1}}
+        <li><span class="second">2</span>
+        {{else if index==2}}
+        <li><span class="third">3</span>
+        {{else}}
+        <li><span>{{index + 1}}</span>    
+        {{/if}}
+        <a href="./article.html?id={{vlaue.id}}">{{vlaue.title}}</a></li>
+        {{/each}}
+    </script>
+
+    <script type="text/html" id="tip4">
+        {{each data vlaue index}}
+         <li>
+           <span>{{vlaue.author.slice(0,1)}}</span>
+           <b><em>{{vlaue.author}}</em> {{vlaue.date}}说:</b>
+           <strong>{{vlaue.intro}}</strong>
+        </li>
+        {{/each}}
+    </script>
+
+     <script type="text/html" id="tip5">
+        {{each data vlaue index}}
+        <li><a href="./article.html?id={{vlaue.id}}">{{vlaue.intro}}</a></li>
+        {{/each}}
+    </script>
 </body>
 
 </html>

@@ -84,6 +84,13 @@ $(function() {
 
     // 文章搜索
     $('.search_btn').on('click',function() {
-        
+        var txt = $('.search_txt').val()
+
+        if (!txt.trim()) {
+            alert('输出内容不能为空')
+            return
+        }
+
+        window.location.href = '../list.html?search=' + txt
     })
 })
